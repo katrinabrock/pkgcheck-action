@@ -27,11 +27,11 @@ inputs:
     required: true
   summary-only:
     description: "Only post the check summary to issue. Set to false to get the full results in the issue."
-    default: true
+    default: "true"
     required: true
   append-to-issue:
     description: "Should issue results be appended to existing issue, or posted in new issues."
-    default: true
+    default: "true"
     required: true
 
 runs:
@@ -43,7 +43,8 @@ runs:
       with:
         ref: "${{ inputs.ref }}"
         fetch-depth: 0
-    - uses: ./.github/actions/core
+    - name: "pkg-check"
+      uses: ./.github/actions/core
       with:
         inputs:
           path: ${{ inputs.path }}
