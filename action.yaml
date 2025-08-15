@@ -43,7 +43,7 @@ runs:
       with:
         ref: "${{ inputs.ref }}"
         fetch-depth: 0
-    - uses: ./core
+    - uses: ./.github/actions/core
       with:
         inputs:
           path: ${{ inputs.path }}
