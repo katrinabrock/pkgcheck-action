@@ -1,0 +1,17 @@
+name: "pkgcheck-core"
+description: "Test your package with {pkgcheck}."
+branding:
+  icon: 'check-circle'
+  color: 'blue'
+inputs:
+  path:
+    description: "path within repo where package is located"
+    default: "."
+    required: true
+
+runs:
+  using: docker
+  image: Dockefile
+  env:
+    GITHUB_TOKEN: ${{ github.token }}
+    PKGCHECK_PATH: ${{ inputs.path }}

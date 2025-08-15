@@ -43,10 +43,10 @@ runs:
       with:
         ref: "${{ inputs.ref }}"
         fetch-depth: 0
-    - uses: ../../Dockerfile
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-        PKGCHECK_PATH: ${{ inputs.path }}
+    - uses: ./action-core.yaml
+      with:
+        inputs:
+          path: ${{ inputs.path }}
       id: pkgcheck
     - uses: actions/upload-artifact@v4
       with:
