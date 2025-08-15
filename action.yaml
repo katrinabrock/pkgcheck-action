@@ -46,8 +46,7 @@ runs:
     - name: "pkg-check"
       uses: ./.github/actions/core
       with:
-        inputs:
-          path: ${{ inputs.path }}
+        path: ${{ inputs.path }}
       id: pkgcheck
     - uses: actions/upload-artifact@v4
       with:
