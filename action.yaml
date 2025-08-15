@@ -17,6 +17,7 @@ runs:
   using: "composite"
   steps:
     - name: Checkout repo
+      repository: katrinabrock/pkgcheck-action
       if: ${{ inputs.ref != ''}}
       uses: actions/checkout@v4
       with:
