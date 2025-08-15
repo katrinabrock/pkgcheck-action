@@ -19,7 +19,7 @@ pak::lockfile_create(
         "any::usethis",
         "any::here",
         "any::sessioninfo",
-        "github::ropensci-review-tools/pkgcheck",
+        "github::katrinabrock/pkgcheck@deep-pkg-support",
         "github::assignUser/octolog"
     ),
     lockfile = "lckfile/pkg.lock",

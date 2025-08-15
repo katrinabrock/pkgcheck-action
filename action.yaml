@@ -21,6 +21,9 @@ inputs:
     # to only create one issue that is updated via edits. 
     default: "pkgcheck results - ${{ github.ref_name }}"
     required: true
+  path:
+    description: "path within repo where package is located"
+    default: "."
   summary-only:
     description: "Only post the check summary to issue. Set to false to get the full results in the issue."
     default: true
@@ -39,9 +42,10 @@ runs:
       with:
         ref: "${{ inputs.ref }}"
         fetch-depth: 0
-    - uses: docker://ghcr.io/ropensci-review-tools/pkgcheck-action:latest
+    - uses: katrinabrock/pkgcheck-action@main
       env:
         GITHUB_TOKEN: ${{ github.token }}
+        PKGCHECK_PATH: ${{ inputs.path }}
       id: pkgcheck
     - uses: actions/upload-artifact@v4
       with:

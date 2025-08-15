@@ -28,7 +28,7 @@ octo_end_group()
 octo_start_group("Running Pkgcheck...")
 pkgstats::ctags_install(sudo = TRUE)
 
-check <- pkgcheck()
+check <- pkgcheck(Sys.getenv("PKGCHECK_PATH"))
 
 if (fs::file_exists (check$info$network_file)) {
     fs::file_copy(check$info$network_file, file_dir) %>%
