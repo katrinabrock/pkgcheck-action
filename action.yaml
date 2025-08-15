@@ -23,7 +23,7 @@ runs:
       with:
         ref: "${{ inputs.ref }}"
         fetch-depth: 0
-    - name: "pkg-check"
+    - name: "pkg-check B"
       uses: ./.github/actions/core
       with:
         path: ${{ inputs.path }}
