@@ -24,6 +24,7 @@ inputs:
   path:
     description: "path within repo where package is located"
     default: "."
+    required: true
   summary-only:
     description: "Only post the check summary to issue. Set to false to get the full results in the issue."
     default: true
@@ -42,7 +43,7 @@ runs:
       with:
         ref: "${{ inputs.ref }}"
         fetch-depth: 0
-    - uses: katrinabrock/pkgcheck-action@main
+    - uses: ../../Dockerfile
       env:
         GITHUB_TOKEN: ${{ github.token }}
         PKGCHECK_PATH: ${{ inputs.path }}
